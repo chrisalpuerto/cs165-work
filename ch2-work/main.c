@@ -11,10 +11,9 @@
 
 
 // q1 function
-int q1_quot_remainder(int a, int b){
-    int quotient = a / b;
-    int remainder = a % b;
-    return (quotient, remainder);
+void q1_quot_remainder(int a, int b, int *quotient, int *remainder){
+    *quotient = a / b;
+    *remainder = a % b;
 }
 
 // q2 function
@@ -28,13 +27,40 @@ int q3_area(int length, int width){
 }
 
 int main(){
-    int test_value1 = 10;
-    int test_value2 = 3;
+    int value1;
+    int value2;
+    int num;
+    int length;
+    int width;
+    int quotient;
+    int remainder;
+    int area;
 
-    int quotient, remainder = q1_quot_remainder(test_value1, test_value2);
 
-    
+    printf("Question 1:\n");
+    printf("Enter two integers: ");
+    scanf("%d %d", &value1, &value2);
 
-    
+    q1_quot_remainder(value1, value2, &quotient, &remainder);
+    printf("%d / %d has a quotient of %d and a remainder of %d\n",
+           value1, value2, quotient, remainder);
+
+    printf("Question 2:\n");
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (q2_is_even(num)) {
+        printf("%d is even\n", num);
+    } else {
+        printf("%d is not even\n", num);
+    }
+
+    printf("Question 3:\n");
+    printf("Enter the length and width of a rectangle: ");
+    scanf("%d %d", &length, &width);
+
+    area = q3_area(length, width);
+    printf("The area of the rectangle is %d\n", area);
+
     return 0;
 }
